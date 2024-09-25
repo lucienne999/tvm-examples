@@ -103,7 +103,9 @@ int main() {
   int device_id = 0;
   int dtype_lanes = 1;
 
-  //  使用 NDArray 可不操心内存
+  // 使用 NDArray 可不操心内存
+  // 可参考：https://github.com/apache/tvm/blob/main/apps/howto_deploy/cpp_deploy.cc#L86
+  
   TVMArrayAlloc(shape, ndim, dtype_code, dtype_bits, dtype_lanes, device_type, device_id, &input);
  
   if (input) {

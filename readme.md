@@ -23,4 +23,28 @@
 
   2. 得到 mlp.so, 在上述 python 脚本中，我们已经加载运行了，在接触的业务中通常需要用 cpp 加载
 
+  ```
+  make relay_cpu
+  ./rely_example
+  ```
+
+  执行后打印了结果；
+
+  3. 更常见的需求是运行在 cuda 上，需要对代码修改：
+
+  - export 需要指定设备
+  - 需要额外数据的拷贝
+    - TVM 中可用 DLManagedTensor 来管理不同设备的数据，当然也可以用 cudamemcpy
+    - 在下面的例子中，实现了两种方式
+
+  ```
+  python export_gpu.py
+  make relay_cuda
+  ./relay_cuda_example
+
+
+
+  ```
+
+
   
